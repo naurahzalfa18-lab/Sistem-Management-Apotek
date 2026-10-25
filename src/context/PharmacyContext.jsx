@@ -8,8 +8,39 @@ import {
 
 const PharmacyContext = createContext();
 
+// Helper untuk migrasi identitas otomatis dari localStorage agar nama lama tidak muncul
+const migrateIdentity = (data) => {
+  if (!data) return data;
+  try {
+    const jsonStr = JSON.stringify(data);
+    const updatedStr = jsonStr
+      .replace(/Apotek Sehat Harmoni/g, 'Naurah Pharm')
+      .replace(/Sehat Harmoni/g, 'Naurah Pharm')
+      .replace(/Harmoni Medika/g, 'Naurah Pharm')
+      .replace(/apt\.\s*Melati Kusuma Dewi,\s*S\.Farm\./g, 'apt. Naurah Zalfa Mauliyanto, S.Farm.')
+      .replace(/Melati Kusuma Dewi/g, 'Naurah Zalfa Mauliyanto')
+      .replace(/Siti Rahmawati/g, 'Aliyah Farhana')
+      .replace(/Andi Saputra/g, 'Dimas Prasetyo')
+      .replace(/Tn\.\s*Bambang Sutrisno/g, 'Tn. Dimas Wardhana')
+      .replace(/Ny\.\s*Ratna Dewi/g, 'Ny. Alya Rahmadina')
+      .replace(/Tn\.\s*Agus Kurniawan/g, 'Tn. Reyhan Pratama')
+      .replace(/Ny\.\s*Mega Utami/g, 'Ny. Safira Maharani')
+      .replace(/dr\.\s*Hendra Pratama,\s*Sp\.PD/g, 'dr. Farhan Alatas, Sp.PD')
+      .replace(/dr\.\s*Amanda Clarissa,\s*Sp\.A/g, 'dr. Clara Anindita, Sp.A')
+      .replace(/dr\.\s*Budi Santoso,\s*Sp\.P/g, 'dr. Raditya Nugraha, Sp.P')
+      .replace(/RS Paru Sehat/g, 'RS Paru Naurah Medika')
+      .replace(/dr\.\s*M Faizal AlQadri/g, 'dr. Danial Fikri, Sp.A')
+      .replace(/dr\.\s*Rian Firmansyah/g, 'dr. Danial Fikri, Sp.A')
+      .replace(/Klinik Pratama Sehat Bersama/g, 'Klinik Pratama Naurah')
+      .replace(/An\.\s*Kevin/g, 'An. Kenzo');
+    return JSON.parse(updatedStr);
+  } catch {
+    return data;
+  }
+};
+
 export const PharmacyProvider = ({ children }) => {
-  // 1. Inisialisasi state dengan localStorage fallback ke initialData
+  // 1. Inisialisasi state dengan localStorage fallback ke initialData dan migrasi otomatis
   const [medicines, setMedicines] = useState(() => {
     try {
       const saved = localStorage.getItem('apotek_sehat_medicines');
@@ -29,7 +60,7 @@ export const PharmacyProvider = ({ children }) => {
   const [transactions, setTransactions] = useState(() => {
     try {
       const saved = localStorage.getItem('apotek_sehat_transactions');
-      return saved ? JSON.parse(saved) : INITIAL_TRANSACTIONS;
+      return saved ? migrateIdentity(JSON.parse(saved)) : INITIAL_TRANSACTIONS;
     } catch {
       return INITIAL_TRANSACTIONS;
     }
@@ -38,7 +69,7 @@ export const PharmacyProvider = ({ children }) => {
   const [prescriptions, setPrescriptions] = useState(() => {
     try {
       const saved = localStorage.getItem('apotek_sehat_prescriptions');
-      return saved ? JSON.parse(saved) : INITIAL_PRESCRIPTIONS;
+      return saved ? migrateIdentity(JSON.parse(saved)) : INITIAL_PRESCRIPTIONS;
     } catch {
       return INITIAL_PRESCRIPTIONS;
     }
@@ -47,7 +78,17 @@ export const PharmacyProvider = ({ children }) => {
   const [settings, setSettings] = useState(() => {
     try {
       const saved = localStorage.getItem('apotek_sehat_settings');
-      return saved ? JSON.parse(saved) : INITIAL_SETTINGS;
+      if (saved) {
+        const parsed = migrateIdentity(JSON.parse(saved));
+        return {
+          ...INITIAL_SETTINGS,
+          ...parsed,
+          pharmacyName: parsed.pharmacyName === "Apotek Sehat Harmoni" ? "Naurah Pharm" : (parsed.pharmacyName || "Naurah Pharm"),
+          pharmacistName: parsed.pharmacistName?.includes("Melati") ? "apt. Naurah Zalfa Mauliyanto, S.Farm." : (parsed.pharmacistName || "apt. Naurah Zalfa Mauliyanto, S.Farm."),
+          ownerName: parsed.ownerName || "Naurah Zalfa Mauliyanto",
+        };
+      }
+      return INITIAL_SETTINGS;
     } catch {
       return INITIAL_SETTINGS;
     }
@@ -331,7 +372,7 @@ export const PharmacyProvider = ({ children }) => {
     localStorage.removeItem('apotek_sehat_transactions');
     localStorage.removeItem('apotek_sehat_prescriptions');
     localStorage.removeItem('apotek_sehat_settings');
-    showToast("Semua data berhasil direset ke data sintetis awal.", "info");
+    showToast("Semua data berhasil direset ke data sintetis Naurah Pharm.", "info");
   };
 
   return (

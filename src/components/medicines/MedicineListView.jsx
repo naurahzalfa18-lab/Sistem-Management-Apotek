@@ -381,7 +381,7 @@ export const MedicineListView = ({ onOpenAddMedicine, onOpenEditMedicine, initia
         {/* Footer info jumlah obat */}
         <div className="p-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
           <span>Menampilkan <strong>{filteredMedicines.length}</strong> dari <strong>{medicines.length}</strong> total obat</span>
-          <span>Apotek Sehat Harmoni &bull; Sistem Inventori</span>
+          <span>Naurah Pharm &bull; Sistem Inventori</span>
         </div>
       </div>
 

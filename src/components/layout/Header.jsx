@@ -38,7 +38,7 @@ export const Header = ({ activeTab, setActiveTab, setIsMobileOpen, onOpenAddMedi
           subtitle: 'Identitas legal apotek, informasi APA, dan manajemen data demo'
         };
       default:
-        return { title: 'Apotek Sehat Harmoni', subtitle: 'Sistem Informasi Apotek' };
+        return { title: 'Naurah Pharm', subtitle: 'Sistem Informasi Apotek' };
     }
   };
 
@@ -115,11 +115,14 @@ export const Header = ({ activeTab, setActiveTab, setIsMobileOpen, onOpenAddMedi
             <span>{todayFormatted}</span>
           </div>
 
-          {/* Pharmacist Badge */}
+          {/* Pharmacist & Admin Badge */}
           <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-50 text-slate-700 text-xs font-medium border border-slate-200/60">
-            <UserCheck className="w-3.5 h-3.5 text-pink-500" />
-            <span className="hidden md:inline font-semibold text-slate-900">{settings.pharmacistName}</span>
-            <span className="md:hidden font-semibold text-slate-900">Apoteker Jaga</span>
+            <UserCheck className="w-3.5 h-3.5 text-pink-500 shrink-0" />
+            <div className="flex flex-col text-left">
+              <span className="hidden md:inline font-semibold text-slate-900 leading-tight">{settings.pharmacistName}</span>
+              <span className="md:hidden font-semibold text-slate-900">Apoteker Jaga</span>
+              <span className="text-[10px] text-pink-600 font-medium leading-none mt-0.5">Admin: {settings.ownerName || 'Naurah Zalfa Mauliyanto'}</span>
+            </div>
           </div>
         </div>
       </div>

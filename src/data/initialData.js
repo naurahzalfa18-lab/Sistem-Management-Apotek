@@ -1,14 +1,15 @@
-// Data Sintetis Awal untuk Demonstrasi Prototipe Apotek Sehat Harmoni
+// Data Sintetis Awal untuk Demonstrasi Prototipe Naurah Pharm
 // Sesuai panduan PRD: data realistis, aman, dan mempermudah pengujian seluruh skenario
 
 export const INITIAL_SETTINGS = {
-  pharmacyName: "Apotek Sehat Harmoni",
-  slogan: "Sahabat Sehat Keluarga Anda",
+  pharmacyName: "Naurah Pharm",
+  slogan: "Your Health, Our Heart",
   address: "Jl. Boulevard Medika No. 12, Kebayoran Baru, Jakarta Selatan",
   phone: "021-78901234 / 0812-9876-5432",
   siaNumber: "SIA: 503/042/SIA/DPMPTSP/2023",
   sipaNumber: "SIPA: 19920814/SIPA_31.74/2022/2045",
-  pharmacistName: "apt. Melati Kusuma Dewi, S.Farm.",
+  pharmacistName: "apt. Naurah Zalfa Mauliyanto, S.Farm.",
+  ownerName: "Naurah Zalfa Mauliyanto",
   receiptFooter: "Semoga Lekas Sembuh. Simpan obat di tempat sejuk & jauhkan dari jangkauan anak-anak.",
 };
 
@@ -299,7 +300,7 @@ export const INITIAL_TRANSACTIONS = [
     metode_pembayaran: "QRIS",
     nominal_bayar: 70000,
     kembalian: 0,
-    petugas: "Siti Rahmawati (Kasir Shift Pagi)",
+    petugas: "Aliyah Farhana (Kasir Shift Pagi)",
     status: "Selesai",
     catatan: "Pelanggan reguler"
   },
@@ -331,7 +332,7 @@ export const INITIAL_TRANSACTIONS = [
     metode_pembayaran: "Tunai",
     nominal_bayar: 50000,
     kembalian: 11500,
-    petugas: "Siti Rahmawati (Kasir Shift Pagi)",
+    petugas: "Aliyah Farhana (Kasir Shift Pagi)",
     status: "Selesai",
     catatan: "-"
   },
@@ -363,7 +364,7 @@ export const INITIAL_TRANSACTIONS = [
     metode_pembayaran: "Kartu Debit",
     nominal_bayar: 79500,
     kembalian: 0,
-    petugas: "Andi Saputra (Kasir Shift Sore)",
+    petugas: "Dimas Prasetyo (Kasir Shift Sore)",
     status: "Selesai",
     catatan: "Penebusan obat rutin"
   }
@@ -376,14 +377,14 @@ export const INITIAL_PRESCRIPTIONS = [
     tanggal_resep: "2026-10-20",
     tanggal_diterima: "2026-10-20T08:50:00",
     pasien: {
-      nama: "Tn. Bambang Sutrisno",
+      nama: "Tn. Dimas Wardhana",
       usia: "54 Tahun",
       gender: "Laki-laki",
       no_telepon: "0813-8822-1199",
       alamat: "Tebet Barat Dalam No. 4, Jakarta Selatan"
     },
     dokter: {
-      nama: "dr. Hendra Pratama, Sp.PD",
+      nama: "dr. Farhan Alatas, Sp.PD",
       sip: "SIP: 446/SIP/DISKES/2021",
       klinik_rs: "RS Medika Utama Jakarta"
     },
@@ -405,12 +406,12 @@ export const INITIAL_PRESCRIPTIONS = [
     ],
     status: "Menunggu Pemeriksaan", // Status awal
     catatan_apoteker: "Pasien membawa resep asli fisik. Perlu skrining interaksi obat.",
-    dicatat_oleh: "Siti Rahmawati",
+    dicatat_oleh: "Aliyah Farhana",
     riwayat_status: [
       {
         status: "Menunggu Pemeriksaan",
         waktu: "2026-10-20T08:50:00",
-        petugas: "Siti Rahmawati",
+        petugas: "Aliyah Farhana",
         catatan: "Resep diterima dari pasien di loket penerimaan."
       }
     ]
@@ -421,14 +422,14 @@ export const INITIAL_PRESCRIPTIONS = [
     tanggal_resep: "2026-10-20",
     tanggal_diterima: "2026-10-20T09:20:00",
     pasien: {
-      nama: "Ny. Ratna Dewi",
+      nama: "Ny. Alya Rahmadina",
       usia: "29 Tahun",
       gender: "Perempuan",
       no_telepon: "0856-7733-4411",
       alamat: "Jl. Mampang Prapatan V No. 18"
     },
     dokter: {
-      nama: "dr. Amanda Clarissa, Sp.A",
+      nama: "dr. Clara Anindita, Sp.A",
       sip: "SIP: 312/SIP/DISKES/2022",
       klinik_rs: "Klinik Ibu & Anak Permata"
     },
@@ -438,7 +439,7 @@ export const INITIAL_PRESCRIPTIONS = [
         nama_obat: "Amoxicillin Sirup Kering 125mg/5ml",
         jumlah: "1 Botol (60ml)",
         aturan_pakai: "3 x 1 sendok takar (5ml) tiap 8 jam dihabiskan",
-        keterangan: "Untuk An. Kevin (3 tahun)"
+        keterangan: "Untuk An. Kenzo (3 tahun)"
       },
       {
         id: "RX-ITM-4",
@@ -450,18 +451,18 @@ export const INITIAL_PRESCRIPTIONS = [
     ],
     status: "Diproses",
     catatan_apoteker: "Sedang proses pelarutan antibiotik kering dan pemberian etiket.",
-    dicatat_oleh: "apt. Melati Kusuma Dewi, S.Farm.",
+    dicatat_oleh: "apt. Naurah Zalfa Mauliyanto, S.Farm.",
     riwayat_status: [
       {
         status: "Menunggu Pemeriksaan",
         waktu: "2026-10-20T09:20:00",
-        petugas: "apt. Melati Kusuma Dewi, S.Farm.",
+        petugas: "apt. Naurah Zalfa Mauliyanto, S.Farm.",
         catatan: "Resep diverifikasi legalitas & kelengkapannya."
       },
       {
         status: "Diproses",
         waktu: "2026-10-20T09:28:00",
-        petugas: "apt. Melati Kusuma Dewi, S.Farm.",
+        petugas: "apt. Naurah Zalfa Mauliyanto, S.Farm.",
         catatan: "Resep disetujui, sedang diracik dan disiapkan etiket pemakaian."
       }
     ]
@@ -472,16 +473,16 @@ export const INITIAL_PRESCRIPTIONS = [
     tanggal_resep: "2026-10-19",
     tanggal_diterima: "2026-10-19T14:10:00",
     pasien: {
-      nama: "Tn. Agus Kurniawan",
+      nama: "Tn. Reyhan Pratama",
       usia: "42 Tahun",
       gender: "Laki-laki",
       no_telepon: "0812-3344-5566",
       alamat: "Pancoran Indah Blok C3"
     },
     dokter: {
-      nama: "dr. Budi Santoso, Sp.P",
+      nama: "dr. Raditya Nugraha, Sp.P",
       sip: "SIP: 118/SIP/DISKES/2019",
-      klinik_rs: "RS Paru Sehat"
+      klinik_rs: "RS Paru Naurah Medika"
     },
     items: [
       {
@@ -501,24 +502,24 @@ export const INITIAL_PRESCRIPTIONS = [
     ],
     status: "Selesai",
     catatan_apoteker: "Obat telah diserahkan beserta edukasi KIE (Komunikasi, Informasi, Edukasi) cara pemakaian.",
-    dicatat_oleh: "apt. Melati Kusuma Dewi, S.Farm.",
+    dicatat_oleh: "apt. Naurah Zalfa Mauliyanto, S.Farm.",
     riwayat_status: [
       {
         status: "Menunggu Pemeriksaan",
         waktu: "2026-10-19T14:10:00",
-        petugas: "apt. Melati Kusuma Dewi, S.Farm.",
+        petugas: "apt. Naurah Zalfa Mauliyanto, S.Farm.",
         catatan: "Resep masuk."
       },
       {
         status: "Diproses",
         waktu: "2026-10-19T14:15:00",
-        petugas: "apt. Melati Kusuma Dewi, S.Farm.",
+        petugas: "apt. Naurah Zalfa Mauliyanto, S.Farm.",
         catatan: "Obat diambil dan dicek nomor batch."
       },
       {
         status: "Selesai",
         waktu: "2026-10-19T14:25:00",
-        petugas: "apt. Melati Kusuma Dewi, S.Farm.",
+        petugas: "apt. Naurah Zalfa Mauliyanto, S.Farm.",
         catatan: "Penyerahan obat ke pasien selesai."
       }
     ]
@@ -529,16 +530,16 @@ export const INITIAL_PRESCRIPTIONS = [
     tanggal_resep: "2026-10-19",
     tanggal_diterima: "2026-10-19T11:05:00",
     pasien: {
-      nama: "Ny. Mega Utami",
+      nama: "Ny. Safira Maharani",
       usia: "36 Tahun",
       gender: "Perempuan",
       no_telepon: "0878-1122-3344",
       alamat: "Kalibata City Tower Kemuning"
     },
     dokter: {
-      nama: "dr. Rian Firmansyah",
+      nama: "dr. Danial Fikri, Sp.A",
       sip: "SIP: 992/SIP/DISKES/2023",
-      klinik_rs: "Klinik Pratama Sehat Bersama"
+      klinik_rs: "Klinik Pratama Naurah"
     },
     items: [
       {
@@ -551,18 +552,18 @@ export const INITIAL_PRESCRIPTIONS = [
     ],
     status: "Perlu Klarifikasi / Ditolak",
     catatan_apoteker: "KLARIFIKASI: Pasien memiliki riwayat alergi berat terhadap golongan Penisilin. Perlu konfirmasi ke dokter penulis resep untuk penggantian ke golongan Eritromisin/Makrolida.",
-    dicatat_oleh: "apt. Melati Kusuma Dewi, S.Farm.",
+    dicatat_oleh: "apt. Naurah Zalfa Mauliyanto, S.Farm.",
     riwayat_status: [
       {
         status: "Menunggu Pemeriksaan",
         waktu: "2026-10-19T11:05:00",
-        petugas: "Siti Rahmawati",
+        petugas: "Aliyah Farhana",
         catatan: "Resep diterima."
       },
       {
         status: "Perlu Klarifikasi / Ditolak",
         waktu: "2026-10-19T11:15:00",
-        petugas: "apt. Melati Kusuma Dewi, S.Farm.",
+        petugas: "apt. Naurah Zalfa Mauliyanto, S.Farm.",
         catatan: "Skrining klinis mendeteksi alergi pasien. Menunggu dokter pengganti."
       }
     ]

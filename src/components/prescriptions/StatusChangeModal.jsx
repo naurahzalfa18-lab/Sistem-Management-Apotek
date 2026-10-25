@@ -6,7 +6,7 @@ export const StatusChangeModal = ({ isOpen, onClose, prescription }) => {
   const { updatePrescriptionStatus } = usePharmacy();
 
   const [selectedStatus, setSelectedStatus] = useState(prescription?.status || 'Menunggu Pemeriksaan');
-  const [petugasName, setPetugasName] = useState('apt. Melati Kusuma Dewi, S.Farm.');
+  const [petugasName, setPetugasName] = useState('apt. Naurah Zalfa Mauliyanto, S.Farm.');
   const [notes, setNotes] = useState('');
 
   if (!isOpen || !prescription) return null;

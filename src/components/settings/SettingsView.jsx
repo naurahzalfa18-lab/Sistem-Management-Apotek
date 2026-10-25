@@ -23,6 +23,7 @@ export const SettingsView = () => {
     siaNumber: settings.siaNumber || '',
     sipaNumber: settings.sipaNumber || '',
     pharmacistName: settings.pharmacistName || '',
+    ownerName: settings.ownerName || 'Naurah Zalfa Mauliyanto',
     receiptFooter: settings.receiptFooter || '',
   });
 
@@ -43,13 +44,14 @@ export const SettingsView = () => {
     setIsResetConfirmOpen(false);
     // Reload form data from initial settings
     setFormData({
-      pharmacyName: "Apotek Sehat Harmoni",
-      slogan: "Sahabat Sehat Keluarga Anda",
+      pharmacyName: "Naurah Pharm",
+      slogan: "Your Health, Our Heart",
       address: "Jl. Boulevard Medika No. 12, Kebayoran Baru, Jakarta Selatan",
       phone: "021-78901234 / 0812-9876-5432",
       siaNumber: "SIA: 503/042/SIA/DPMPTSP/2023",
       sipaNumber: "SIPA: 19920814/SIPA_31.74/2022/2045",
-      pharmacistName: "apt. Melati Kusuma Dewi, S.Farm.",
+      pharmacistName: "apt. Naurah Zalfa Mauliyanto, S.Farm.",
+      ownerName: "Naurah Zalfa Mauliyanto",
       receiptFooter: "Semoga Lekas Sembuh. Simpan obat di tempat sejuk & jauhkan dari jangkauan anak-anak.",
     });
   };
@@ -113,19 +115,20 @@ export const SettingsView = () => {
             />
           </div>
 
+          <div>
+            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+              Nomor Telepon & WhatsApp
+            </label>
+            <input
+              type="text"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-pink-500 focus:ring-2 focus:ring-pink-100 text-sm text-slate-900 outline-none transition"
+            />
+          </div>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                Nomor Telepon & WhatsApp
-              </label>
-              <input
-                type="text"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-pink-500 focus:ring-2 focus:ring-pink-100 text-sm text-slate-900 outline-none transition"
-              />
-            </div>
             <div>
               <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
                 Apoteker Pengelola Apotek (APA)
@@ -134,6 +137,19 @@ export const SettingsView = () => {
                 type="text"
                 name="pharmacistName"
                 value={formData.pharmacistName}
+                onChange={handleChange}
+                className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-pink-500 focus:ring-2 focus:ring-pink-100 text-sm text-slate-900 outline-none transition font-semibold"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                Pemilik / Administrator Apotek
+              </label>
+              <input
+                type="text"
+                name="ownerName"
+                value={formData.ownerName}
                 onChange={handleChange}
                 className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-pink-500 focus:ring-2 focus:ring-pink-100 text-sm text-slate-900 outline-none transition font-semibold"
                 required

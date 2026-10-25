@@ -236,7 +236,7 @@ export const PosView = () => {
       metode_pembayaran: paymentMethod,
       nominal_bayar: paymentMethod === 'Tunai' ? numericCash : cartTotal,
       catatan: customerNote,
-      petugas: 'apt. Melati Kusuma Dewi, S.Farm.'
+      petugas: settings.pharmacistName || 'apt. Naurah Zalfa Mauliyanto, S.Farm.'
     });
 
     setIsProcessing(false);
@@ -296,7 +296,7 @@ export const PosView = () => {
 
         <div className="text-xs text-slate-500 hidden sm:flex items-center gap-2 pr-2">
           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-          Kasir Aktif: <strong className="text-slate-800">apt. Melati Kusuma Dewi, S.Farm.</strong>
+          Kasir Aktif: <strong className="text-slate-800">{settings.pharmacistName || 'apt. Naurah Zalfa Mauliyanto, S.Farm.'}</strong>
         </div>
       </div>
 

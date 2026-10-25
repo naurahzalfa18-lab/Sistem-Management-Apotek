@@ -32,7 +32,7 @@ export const PrescriptionModal = ({ isOpen, onClose }) => {
       }
     ],
     catatan_awal: '',
-    dicatat_oleh: 'apt. Melati Kusuma Dewi, S.Farm.'
+    dicatat_oleh: 'apt. Naurah Zalfa Mauliyanto, S.Farm.'
   });
 
   const [error, setError] = useState('');
@@ -204,7 +204,7 @@ export const PrescriptionModal = ({ isOpen, onClose }) => {
                   name="nama"
                   value={formData.pasien.nama}
                   onChange={handlePatientChange}
-                  placeholder="cth: Tn. Budi Santoso"
+                  placeholder="cth: Tn. Dimas Wardhana"
                   className="w-full px-3 py-2 rounded-xl border border-slate-200 focus:border-pink-500 text-xs text-slate-900 outline-none bg-white transition"
                   required
                 />
@@ -284,7 +284,7 @@ export const PrescriptionModal = ({ isOpen, onClose }) => {
                   name="nama"
                   value={formData.dokter.nama}
                   onChange={handleDoctorChange}
-                  placeholder="cth: dr. Hendra, Sp.PD"
+                  placeholder="cth: dr. Farhan Alatas, Sp.PD"
                   className="w-full px-3 py-2 rounded-xl border border-slate-200 focus:border-pink-500 text-xs text-slate-900 outline-none bg-white transition"
                   required
                 />

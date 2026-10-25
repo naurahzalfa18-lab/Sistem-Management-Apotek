@@ -1,6 +1,6 @@
 // Skrip Pengujian Logika Bisnis & Validasi (Aturan PRD & 4 Perbaikan Baru)
 
-import { INITIAL_MEDICINES, INITIAL_TRANSACTIONS, INITIAL_PRESCRIPTIONS } from '../src/data/initialData.js';
+import { INITIAL_MEDICINES, INITIAL_TRANSACTIONS, INITIAL_PRESCRIPTIONS, INITIAL_SETTINGS } from '../src/data/initialData.js';
 
 console.log("=== MEMULAI PENGUJIAN LOGIKA BISNIS APLIKASI APOTEK ===");
 
@@ -38,8 +38,11 @@ const isNearExpiry = (dateStr) => {
 };
 
 // ==========================================
-// 1. UJI MASTER DATA SINTETIS
+// 1. UJI IDENTITAS APOTEK & MASTER DATA SINTETIS
 // ==========================================
+assert(INITIAL_SETTINGS.pharmacyName === "Naurah Pharm", "Nama apotek berhasil disesuaikan menjadi 'Naurah Pharm'");
+assert(INITIAL_SETTINGS.ownerName === "Naurah Zalfa Mauliyanto", "Nama pemilik/administrator adalah 'Naurah Zalfa Mauliyanto'");
+assert(INITIAL_SETTINGS.pharmacistName === "apt. Naurah Zalfa Mauliyanto, S.Farm.", "Nama apoteker pengelola apotek (APA) sesuai identitas Naurah Zalfa Mauliyanto");
 assert(INITIAL_MEDICINES.length >= 15, "Master obat awal memuat minimal 15 item sintetis");
 assert(INITIAL_MEDICINES.some(m => m.stok <= m.stok_minimum), "Terdapat obat dengan kondisi stok rendah untuk pengujian");
 assert(INITIAL_MEDICINES.some(m => m.aktif === false), "Terdapat obat berstatus non-aktif untuk pengujian");

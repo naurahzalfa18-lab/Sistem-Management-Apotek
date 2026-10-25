@@ -23,8 +23,8 @@ export const DashboardView = ({ setActiveTab, onSelectMedicineFilter, onOpenAddM
   // Stok Rendah: stok <= stok_minimum
   const lowStockMedicines = activeMedicines.filter(m => m.stok <= m.stok_minimum);
 
-  const todayZero = new Date();
-  todayZero.setHours(0, 0, 0, 0);
+  const today = new Date();
+  const todayZero = new Date(today.getFullYear(), today.getMonth(), today.getDate());
 
   // Obat Sudah Kedaluwarsa
   const expiredMedicines = medicines.filter(m => {
@@ -43,9 +43,9 @@ export const DashboardView = ({ setActiveTab, onSelectMedicineFilter, onOpenAddM
     return diffDays >= 0 && diffDays <= 60;
   });
 
-  // Transaksi Hari Ini
-  const todayStr = todayZero.toISOString().slice(0, 10);
-  const todayTransactions = transactions.filter(t => t.tanggal_waktu && t.tanggal_waktu.startsWith(todayStr));
+  // Transaksi Hari Ini (Format lokal YYYY-MM-DD konsisten dengan input tanggal & ISO)
+  const todayStr = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+  const todayTransactions = transactions.filter(t => t.tanggal_waktu && t.tanggal_waktu.slice(0, 10) === todayStr);
   const todayRevenue = todayTransactions.reduce((acc, curr) => acc + (curr.total || 0), 0);
 
   // Resep Menunggu Pemeriksaan
@@ -76,7 +76,7 @@ export const DashboardView = ({ setActiveTab, onSelectMedicineFilter, onOpenAddM
             Sistem Informasi Apotek Modern
           </span>
           <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
-            Selamat Datang di Apotek Sehat Harmoni
+            Selamat Datang di Naurah Pharm
           </h2>
           <p className="mt-2 text-sm sm:text-base text-pink-100 leading-relaxed">
             Kelola persediaan obat, layani kasir dengan cepat, dan dokumentasikan resep pasien secara rapi, akurat, dan terpercaya.

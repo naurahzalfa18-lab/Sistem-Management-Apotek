@@ -92,8 +92,8 @@ export const Sidebar = ({ activeTab, setActiveTab, isMobileOpen, setIsMobileOpen
               <HeartPulse className="w-6 h-6" />
             </div>
             <div>
-              <h1 className="font-bold text-slate-900 text-base leading-tight">Apotek Sehat</h1>
-              <p className="text-xs font-medium text-pink-600">Harmoni Medika</p>
+              <h1 className="font-bold text-slate-900 text-base leading-tight">Naurah Pharm</h1>
+              <p className="text-xs font-medium text-pink-600">Apotek & Healthcare</p>
             </div>
           </div>
           <button
@@ -139,7 +139,7 @@ export const Sidebar = ({ activeTab, setActiveTab, isMobileOpen, setIsMobileOpen
             Prototipe Aktif (Demo)
           </div>
           <p className="text-[11px] text-slate-600 mt-1 leading-relaxed">
-            Data disimpan pada penyimpanan lokal browser.
+            Admin: <strong className="text-slate-800">Naurah Zalfa Mauliyanto</strong>
           </p>
         </div>
       </aside>
